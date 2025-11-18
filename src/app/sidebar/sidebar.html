@@ -1,0 +1,26 @@
+<div class="sidebar">
+  <div class="sidebar-logo">
+     <img src="assets/logo.png" alt="Logo" class="sidebar-logo-img">
+  </div>
+  <div class="portal-title">Customer Portal</div>
+  <nav class="nav">
+    <a routerLink="./profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+      <span class="icon"></span>
+      <span>Profile</span>
+    </a>
+    <a routerLink="./dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+      <span class="icon"></span>
+      <span>Dashboard</span>
+    </a>
+    <a routerLink="./finance-sheet" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+      <span class="icon"></span>
+      <span>Finance Sheet</span>
+    </a>
+  </nav>
+  <div class="logout-container">
+    <button (click)="logout()" class="logout-button">
+      <span class="icon"></span>
+      <span>Logout</span>
+    </button>
+  </div>
+</div>

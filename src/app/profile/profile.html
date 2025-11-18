@@ -1,0 +1,44 @@
+<div *ngIf="!loading(); else loadingTpl" class="profile-container">
+
+  <div class="profile-header">
+    <div class="profile-avatar">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/user-male-circle.png" alt="avatar">
+    </div>
+
+    <div class="profile-info">
+      <p>Customer Name</p>
+      <h2>{{ profileData()?.NAME }}</h2>
+
+      <p>Customer ID</p>
+      <h3>{{ profileData()?.CUSTOMER_ID }}</h3>
+    </div>
+  </div>
+
+  <div class="profile-details">
+
+    <div class="detail-item">
+      <p>STREET</p>
+      <h4>{{ profileData()?.STREET || '-' }}</h4>
+    </div>
+
+    <div class="detail-item">
+      <p>CITY</p>
+      <h4>{{ profileData()?.CITY }}</h4>
+    </div>
+
+    <div class="detail-item">
+      <p>COUNTRY</p>
+      <h4>{{ profileData()?.COUNTRY }}</h4>
+    </div>
+
+    <div class="detail-item">
+      <p>POSTAL CODE</p>
+      <h4>{{ profileData()?.POSTAL_CODE }}</h4>
+    </div>
+
+  </div>
+</div>
+
+<ng-template #loadingTpl>
+  <p style="text-align:center;padding:20px;font-size:18px;">Loading profile...</p>
+</ng-template>

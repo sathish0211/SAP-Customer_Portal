@@ -1,0 +1,42 @@
+.profile-container {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-avatar {
+  background-color: #8B0000;
+  border-radius: 50%;
+  margin-right: 20px;
+  padding: 20px;
+}
+
+.profile-info h2 {
+  margin: 0;
+}
+
+.profile-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.detail-item {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.detail-item p {
+  color: #888;
+  font-size: 12px;
+  margin: 0 0 5px 0;
+}

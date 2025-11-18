@@ -1,0 +1,38 @@
+<div class="invoice-list-container" *ngIf="!loading(); else loadingTpl">
+
+  <div class="header">
+    <button class="back-button" (click)="back()">
+      <img src="https://img.icons8.com/ios-filled/50/000000/left.png" />
+    </button>
+    <h1>Overall Sales Summary</h1>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Total Orders</th>
+          <th>Total Amount</th>
+          <th>Currency</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (item of summary(); track item.TOTAL_COUNT) {
+        <tr>
+          <td>{{ item.TOTAL_COUNT }}</td>
+          <td>{{ item.TOTAL_AMOUNT }}</td>
+          <td>{{ item.CURRENCY }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<ng-template #loadingTpl>
+  <p style="text-align:center; font-size:18px; padding:20px;">
+    Loading Overall Sales Data...
+  </p>
+</ng-template>

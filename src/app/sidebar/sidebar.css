@@ -1,0 +1,92 @@
+/* General styles */
+.sidebar {
+  background-color: #fff;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #eee;
+  padding: 20px;
+}
+
+.sidebar-logo {
+  margin: 0 auto 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;      /* remove background */
+  border: none;          /* remove dashed circle */
+}
+
+.portal-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #8B0000;
+}
+
+/* Navigation styles */
+.nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background-color: #8B0000; /* Dark red */
+  color: #fff;
+}
+
+.nav-item.active {
+  font-weight: bold;
+}
+
+/* Icon styles */
+.icon {
+  margin-right: 15px;
+}
+
+/* Logout styles */
+.logout-container {
+  margin-top: auto;
+}
+
+.logout-button {
+  background: none;
+  border: none;
+  color: #8B0000; /* Dark red */
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  text-align: left;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover,
+.logout-button:active {
+  background-color: #8B0000;
+  color: #fff;
+}
+
+.sidebar-logo-img {
+  width: 90px;           /* adjust as needed */
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;      /* ensure no circle effect */
+}

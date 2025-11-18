@@ -1,0 +1,45 @@
+<div class="invoice-list-container" *ngIf="!loading(); else loadingTpl">
+
+  <div class="header">
+    <button class="back-button" (click)="back()">
+      <img src="https://img.icons8.com/ios-filled/50/000000/left.png" />
+    </button>
+    <h1>Sales Orders</h1>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Order No</th>
+          <th>Order Date</th>
+          <th>Material</th>
+          <th>Description</th>
+          <th>Qty</th>
+          <th>Amount</th>
+          <th>Currency</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (item of orders(); track item.VBELN) {
+        <tr>
+          <td>{{ item.VBELN }}</td>
+          <td>{{ item.ERDAT }}</td>
+          <td>{{ item.MATNR }}</td>
+          <td>{{ item.ARKTX }}</td>
+          <td>{{ item.KWMENG }}</td>
+          <td>{{ item.NETWR }}</td>
+          <td>{{ item.WAERK }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ng-template #loadingTpl>
+  <p style="text-align:center; font-size:18px; padding:20px;">
+    Loading Sales Orders...
+  </p>
+</ng-template>

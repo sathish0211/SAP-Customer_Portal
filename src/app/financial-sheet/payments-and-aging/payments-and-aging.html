@@ -1,0 +1,44 @@
+<div class="invoice-list-container" *ngIf="!loading(); else loadingTpl">
+
+  <div class="header">
+    <button class="back-button" (click)="back()">
+      <img src="https://img.icons8.com/ios-filled/50/000000/left.png" alt="back" />
+    </button>
+    <h1>Payments & Aging</h1>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Invoice No</th>
+          <th>Invoice Date</th>
+          <th>Amount</th>
+          <th>Currency</th>
+          <th>Due Date</th>
+          <th>Days Overdue</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for(item of payments(); track item.VBELN) {
+          <tr>
+            <td>{{ item.VBELN }}</td>
+            <td>{{ item.FKDAT }}</td>
+            <td>{{ item.NETWR }}</td>
+            <td>{{ item.WAERK }}</td>
+            <td>{{ item.DATS }}</td>
+            <td>{{ item.AGING }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<ng-template #loadingTpl>
+  <p style="text-align:center; font-size:18px; padding:20px;">
+    Loading Payments & Aging...
+  </p>
+</ng-template>

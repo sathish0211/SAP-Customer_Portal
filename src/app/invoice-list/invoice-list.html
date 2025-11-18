@@ -1,0 +1,41 @@
+<div class="invoice-list-container">
+  <div class="header">
+    <button class="back-button" (click)="back()">
+      <img src="https://img.icons8.com/ios-filled/50/000000/left.png" alt="back"/>
+    </button>
+    <h1>{{ title$ | async }}</h1>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Invoice No</th>
+          <th>Invoice Date</th>
+          <th>Amount</th>
+          <th>Currency</th>
+          <th>Sold To</th>
+          <th>Bill To</th>
+          <th>Sales Org</th>
+          <th>Created On</th>
+          <th>Dist. Channel</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(invoice of invoices$ | async; track invoice.invoiceNo){
+          <tr>
+            <td>{{ invoice.invoiceNo }}</td>
+            <td>{{ invoice.invoiceDate }}</td>
+            <td>{{ invoice.amount }}</td>
+            <td>{{ invoice.currency }}</td>
+            <td>{{ invoice.soldTo }}</td>
+            <td>{{ invoice.billTo }}</td>
+            <td>{{ invoice.salesOrg }}</td>
+            <td>{{ invoice.createdOn }}</td>
+            <td>{{ invoice.distChannel }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

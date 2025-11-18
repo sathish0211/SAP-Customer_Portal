@@ -1,0 +1,56 @@
+<div class="invoice-list-container" *ngIf="!loading(); else loadingTpl">
+
+  <div class="header">
+    <button class="back-button" (click)="back()">
+      <img src="https://img.icons8.com/ios-filled/50/000000/left.png" />
+    </button>
+    <h1>Inquiry Data</h1>
+  </div>
+
+  <div *ngIf="error()" class="error-box">
+    {{ error() }}
+  </div>
+
+  <div class="table-container" *ngIf="inquiries().length > 0">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Inquiry No</th>
+          <th>Date</th>
+          <th>Material No</th>
+          <th>Description</th>
+          <th>Qty</th>
+          <th>Unit</th>
+          <th>Currency</th>
+          <th>Net Amount</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for(item of inquiries(); track item.VBELN) {
+          <tr>
+            <td>{{ item.VBELN }}</td>
+            <td>{{ item.ERDAT }}</td>
+            <td>{{ item.MATNR }}</td>
+            <td>{{ item.ARKTX }}</td>
+            <td>{{ item.KWMENG }}</td>
+            <td>{{ item.MEINS }}</td>
+            <td>{{ item.WAERK }}</td>
+            <td>{{ item.NETWR }}</td>
+          </tr>
+        }
+      </tbody>
+
+    </table>
+  </div>
+
+  <div *ngIf="inquiries().length === 0 && !error()" class="no-data">
+    No Inquiry Data Found.
+  </div>
+
+</div>
+
+<ng-template #loadingTpl>
+  <p class="loading">Loading Inquiry Data...</p>
+</ng-template>

@@ -1,0 +1,112 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fbeae8;
+}
+
+.logo-container {
+  margin: 0 auto 20px;
+}
+
+
+
+.login-card {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+}
+
+
+
+h1 {
+  color: #8B0000;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px; /* Make space for the icon */
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password svg {
+  fill: #888;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #8B0000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #a52a2a;
+}
+
+/* Accessibility focus styles */
+input[type="text"]:focus,
+input[type="password"]:focus,
+.login-button:focus {
+  outline: 2px solid #8B0000;
+  outline-offset: 2px;
+}
+
+.toggle-password:focus {
+  outline: 2px solid #8B0000;
+  border-radius: 50%;
+  outline-offset: 2px;
+}
