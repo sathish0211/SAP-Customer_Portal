@@ -10,7 +10,7 @@
 }
 
 .back-button {
-  background: #ff4d4d;
+  background: maroon;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -40,7 +40,7 @@ table {
 }
 
 th {
-  background-color: #ff4d4d;
+  background-color: maroon;
   color: white;
   padding: 12px;
   text-align: left;

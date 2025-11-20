@@ -560,6 +560,84 @@ app.post("/delivery", async (req, res) => {
   }
 });
 
+// ----------------------- INVOICE PDF DOWNLOAD API -----------------------
+app.post("/invoice-download", async (req, res) => {
+  const { vbeln } = req.body;
+
+  if (!vbeln) {
+    return res.status(400).json({ status: "FAIL", message: "VBELN is required" });
+  }
+
+  // SOAP XML request for Invoice PDF RFC
+  const soapRequestXML = `
+  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                    xmlns:tns="urn:sap-com:document:sap:rfc:functions">
+    <soapenv:Header/>
+    <soapenv:Body>
+      <tns:ZSG_FM_INVOICE_PDF>
+        <IV_VBELN>${vbeln}</IV_VBELN>
+      </tns:ZSG_FM_INVOICE_PDF>
+    </soapenv:Body>
+  </soapenv:Envelope>
+  `;
+
+  try {
+    const PDF_URL =
+      "http://172.17.19.24:8000/sap/bc/srt/scs/sap/zg_rfc_invoice_pdf_demo?sap-client=100";
+
+    // SAP SOAP Call
+    const response = await axios.post(PDF_URL, soapRequestXML, {
+      headers: {
+        "Content-Type": "text/xml",
+        SOAPAction: "",
+      },
+      auth: {
+        username: SAP_USERNAME,
+        password: SAP_PASSWORD,
+      },
+    });
+
+    // Convert XML → JSON
+    const jsonResult = await parseStringPromise(response.data, {
+      explicitArray: false,
+    });
+
+    // Extract Base64 PDF
+    const pdfBase64 =
+      jsonResult["soap-env:Envelope"]["soap-env:Body"][
+        "n0:ZSG_FM_INVOICE_PDFResponse"
+      ]["E_PDF"];
+
+    if (!pdfBase64) {
+      return res.status(500).json({
+        status: "ERROR",
+        message: "No PDF returned from SAP.",
+      });
+    }
+
+    // Convert base64 → Buffer
+    const pdfBuffer = Buffer.from(pdfBase64, "base64");
+
+    // Send as PDF file back to Angular
+    res.set({
+      "Content-Type": "application/pdf",
+      "Content-Disposition": `attachment; filename=invoice_${vbeln}.pdf`,
+      "Content-Length": pdfBuffer.length,
+    });
+
+    return res.send(pdfBuffer);
+
+  } catch (error) {
+    console.error("SAP Invoice PDF Error:", error);
+
+    return res.status(500).json({
+      status: "ERROR",
+      message: "Failed to download invoice PDF from SAP",
+      error: error.message,
+    });
+  }
+});
+
 
 
 // --------------------- SERVER START -----------------------
