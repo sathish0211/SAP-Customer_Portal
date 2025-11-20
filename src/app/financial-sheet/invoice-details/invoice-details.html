@@ -1,0 +1,65 @@
+<div class="invoice-list-container" *ngIf="!loading(); else loadingTpl">
+
+  <div class="header">
+    <button class="back-button" (click)="back()">
+      <img src="https://img.icons8.com/ios-filled/50/000000/left.png" alt="back"/>
+    </button>
+    <h1>Invoice Details</h1>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Invoice No</th>
+          <th>Invoice Date</th>
+          <th>Amount</th>
+          <th>Currency</th>
+          <th>Sold To</th>
+          <th>Bill To</th>
+          <th>Sales Org</th>
+          <th>Created On</th>
+          <th>Channel</th>
+          <th>Preview</th>
+          <th>Download</th> <!-- NEW COLUMN -->
+        </tr>
+      </thead>
+
+      <tbody>
+        @for(item of invoices(); track item.VBELN) {
+          <tr>
+            <td>{{ item.VBELN }}</td>
+            <td>{{ item.FKDAT }}</td>
+            <td>{{ item.NETWR }}</td>
+            <td>{{ item.WAERK }}</td>
+            <td>{{ item.KUNAG }}</td>
+            <td>{{ item.KUNRG }}</td>
+            <td>{{ item.VKORG }}</td>
+            <td>{{ item.ERDAT }}</td>
+            <td>{{ item.VTWEG }}</td>
+
+            <!-- DOWNLOAD BUTTON -->
+             <td>
+  <button class="preview-btn" (click)="previewPDF(item.VBELN)">
+    Preview
+  </button>
+</td>
+            <td>
+              <button class="download-btn" (click)="downloadPDF(item.VBELN)">
+                Download
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+
+    </table>
+  </div>
+
+</div>
+
+<ng-template #loadingTpl>
+  <p style="text-align:center; font-size:20px; padding:20px;">
+    Loading invoice details...
+  </p>
+</ng-template>

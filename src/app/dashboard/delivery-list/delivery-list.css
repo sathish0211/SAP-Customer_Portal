@@ -47,10 +47,15 @@ th {
 }
 
 td {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid maroon;
   padding: 12px;
 }
 
 tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+
+table tr {
+  background-color: bisque;
 }

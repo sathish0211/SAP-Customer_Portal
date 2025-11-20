@@ -13,12 +13,12 @@ import { DeliveryListComponent } from './dashboard/delivery-list/delivery-list';
 
 // -------- Finance Sheet --------
 import { FinancialSheetComponent } from './financial-sheet/financial-sheet';
-//import { InvoiceDetailsComponent } from './financial-sheet/invoice-details/invoice-details';
+import { InvoiceDetailsComponent } from './financial-sheet/invoice-details/invoice-details';
 import { PaymentsAndAgingComponent } from './financial-sheet/payments-and-aging/payments-and-aging';
 import { CreditDebitMemoComponent } from './financial-sheet/credit-debit-memo/credit-debit-memo';
 import { OverallSalesDataComponent } from './financial-sheet/overall-sales-data/overall-sales-data';
-import { InquiryDataComponent as InquiryDataFinanceComponent } 
-        from './financial-sheet/inquiry-data/inquiry-data';
+//import { InquiryDataComponent as InquiryDataFinanceComponent } 
+        //from './financial-sheet/inquiry-data/inquiry-data';
 
 import { InvoiceList } from './invoice-list/invoice-list';
 import { Login } from './login/login';
@@ -45,11 +45,11 @@ export const routes: Routes = [
 
       // Finance Sheet
       { path: 'finance-sheet', component: FinancialSheetComponent },
-      //{ path: 'invoice-details', component: InvoiceDetailsComponent },
+      { path: 'invoice-details', component: InvoiceDetailsComponent },
       { path: 'payments-and-aging', component: PaymentsAndAgingComponent },
       { path: 'credit-debit-memo', component: CreditDebitMemoComponent },
       { path: 'overall-sales-data', component: OverallSalesDataComponent },
-      { path: 'finance-inquiry-data', component: InquiryDataFinanceComponent },
+      //{ path: 'finance-inquiry-data', component: InquiryDataFinanceComponent },
 
       // Invoice List
       { path: 'invoice-list', component: InvoiceList },
