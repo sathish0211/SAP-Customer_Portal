@@ -43,16 +43,18 @@
       
       <div class="input-group">
         <label for="customer-id">Customer ID</label>
-        <input type="text" id="customer-id" formControlName="customerId">
+        <input type="text" id="customer-id" formControlName="customerId" placeholder="Enter your Customer ID">
       </div>
 
       <div class="input-group">
         <label for="password">Password</label>
+        
         <div class="password-wrapper">
           <input 
             [type]="showPassword() ? 'text' : 'password'" 
             id="password" 
             formControlName="password"
+            placeholder="Enter Your Password"
           >
           <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
             👁
