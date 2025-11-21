@@ -1,8 +1,24 @@
-.home-container {
-  display: flex;
+:host {
+  display: block;
 }
 
-.content {
-  flex-grow: 1;
-  padding: 20px;
+/* No styles needed for sidebar — it already has its own CSS */
+
+.main-content {
+  margin-left: 250px; /* Same width as sidebar */
+  padding: 30px;
+  background: #f5f5f5; /* Light background for whole page */
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.page-container {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 95%;
+  margin: auto;
+  min-height: calc(100vh - 60px);
+  box-sizing: border-box;
 }

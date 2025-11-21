@@ -1,12 +1,15 @@
-/* General styles */
 .sidebar {
   background-color: white;
   width: 250px;
   height: 100vh;
+  position: fixed;         /* Make it fixed */
+  top: 0;                  /* Stick to top */
+  left: 0;                 /* Stick to left */
   display: flex;
   flex-direction: column;
   border-right: 1px solid #eee;
   padding: 20px;
+  overflow-y: auto;        /* Optional: Scroll inside sidebar if content exceeds height */
 }
 
 .sidebar-logo {
@@ -61,7 +64,9 @@
 /* Logout styles */
 .logout-container {
   margin-top: auto;
+  margin-bottom: 30px;
 }
+
 
 .logout-button {
   background: none;

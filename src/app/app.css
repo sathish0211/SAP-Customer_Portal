@@ -1,0 +1,18 @@
+.main-content {
+  margin-left: 250px;
+  padding: 30px;
+  background: #f5f5f5; /* light grey background */
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* The wrapper around each page */
+.page-container {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  width: 95%;
+  margin: auto;
+  min-height: calc(100vh - 60px);
+}
