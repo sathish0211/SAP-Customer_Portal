@@ -30,31 +30,40 @@ h1 {
   color: #333;
 }
 
-.table-container {
-  overflow-x: auto;
+/* Scrollable table wrapper */
+.table-wrapper {
+  max-height: 75vh;
+  overflow-y: auto;
+  border-radius: 8px;
+  border: 1px solid #ddd;
 }
 
-table {
+/* Table styling */
+.aging-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-th {
+.aging-table th,
+.aging-table td {
+  padding: 12px;
+  border-bottom: 1px solid maroon;
+}
+
+/* Sticky header */
+.aging-table thead th {
+  position: sticky;
+  top: 0;
   background-color: maroon;
   color: white;
-  padding: 12px;
-  text-align: left;
+  z-index: 10;
 }
 
-td {
-  border-bottom: 1px solid maroon;
-  padding: 12px;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-table tr {
+/* Row colors */
+.aging-table tbody tr {
   background-color: bisque;
+}
+
+.aging-table tbody tr:nth-child(even) {
+  background-color: #f3d5b5;
 }

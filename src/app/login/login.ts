@@ -42,18 +42,15 @@ export class Login {
       password
     }).subscribe({
       next: (res: any) => {
-        if (res.status === 'SUCCESS') {
-          localStorage.setItem("customerId", customerId);
-          alert('Login Successful');
-          this.router.navigate(['/home']);
-        } else {
-          alert('Invalid Credentials');
-        }
-      },
+  if (res.status === 'SUCCESS') {
+    localStorage.setItem("customerId", customerId);
+    this.router.navigate(['/home']);
+  } 
+},
       error: (err) => {
-        console.error(err);
-        alert('Server Error. Unable to connect to SAP.');
-      }
+  console.error(err);
+}
+
     });
   }
 }

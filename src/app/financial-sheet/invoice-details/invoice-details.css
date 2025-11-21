@@ -2,13 +2,13 @@
   padding: 20px;
   font-family: sans-serif;
 }
- 
+
 .header {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
- 
+
 .back-button {
   background: maroon;
   border: none;
@@ -17,46 +17,61 @@
   margin-right: 15px;
   padding: 10px;
 }
- 
+
 .back-button img {
   width: 20px;
   height: 20px;
   filter: invert(1);
 }
- 
+
 h1 {
   margin: 0;
   font-size: 24px;
   color: #333;
 }
- 
-.table-container {
-  overflow-x: auto;
+
+/* Scrollable section */
+.table-wrapper {
+  max-height: 75vh;     /* main scroll area */
+  overflow-y: auto;
+  border-radius: 8px;
+  border: 1px solid #ddd;
 }
- 
-table {
+
+/* Table styling */
+.invoice-table {
   width: 100%;
   border-collapse: collapse;
 }
- 
-th {
-  background-color: maroon;
-  color: white;
+
+.invoice-table th,
+.invoice-table td {
   padding: 12px;
-  text-align: left;
-}
- 
-td {
   border-bottom: 1px solid maroon;
-  padding: 12px;
-}
- 
-tr:nth-child(even) {
-  background-color: #f2f2f2;
 }
 
+/* Sticky Header */
+.invoice-table thead th {
+  position: sticky;
+  top: 0;
+  background-color: maroon;
+  color: white;
+  z-index: 10;
+}
+
+/* Table row backgrounds */
+.invoice-table tbody tr {
+  background-color: #f8e0c2; /* light bisque */
+}
+
+.invoice-table tbody tr:nth-child(even) {
+  background-color: #f3d5b5;
+}
+
+/* Buttons */
+.preview-btn,
 .download-btn {
-  background-color: #8B0000; 
+  background-color: #8B0000;
   color: white;
   border: none;
   padding: 8px 14px;
@@ -65,37 +80,7 @@ tr:nth-child(even) {
   transition: 0.2s;
 }
 
+.preview-btn:hover,
 .download-btn:hover {
   background-color: #600000;
-}
-
-.preview-btn {
-  background-color: maroon;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-right: 6px;
-}
-
-.preview-btn:hover {
-  background-color:#600000;
-}
-
-.download-btn {
-  background-color: #8B0000;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.download-btn:hover {
-  background-color: #600000;
-}
-
-table tr {
-  background-color: bisque;
 }

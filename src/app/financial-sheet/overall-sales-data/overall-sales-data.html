@@ -7,8 +7,9 @@
     <h1>Overall Sales Summary</h1>
   </div>
 
-  <div class="table-container">
-    <table>
+  <!-- Scrollable Table Wrapper -->
+  <div class="table-wrapper">
+    <table class="summary-table">
       <thead>
         <tr>
           <th>Total Orders</th>
@@ -19,11 +20,11 @@
 
       <tbody>
         @for (item of summary(); track item.TOTAL_COUNT) {
-        <tr>
-          <td>{{ item.TOTAL_COUNT }}</td>
-          <td>{{ item.TOTAL_AMOUNT }}</td>
-          <td>{{ item.CURRENCY }}</td>
-        </tr>
+          <tr>
+            <td>{{ item.TOTAL_COUNT }}</td>
+            <td>{{ item.TOTAL_AMOUNT }}</td>
+            <td>{{ item.CURRENCY }}</td>
+          </tr>
         }
       </tbody>
     </table>

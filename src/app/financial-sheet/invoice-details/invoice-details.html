@@ -7,8 +7,9 @@
     <h1>Invoice Details</h1>
   </div>
 
-  <div class="table-container">
-    <table>
+  <!-- SCROLLABLE TABLE WRAPPER -->
+  <div class="table-wrapper">
+    <table class="invoice-table">
       <thead>
         <tr>
           <th>Invoice No</th>
@@ -21,7 +22,7 @@
           <th>Created On</th>
           <th>Channel</th>
           <th>Preview</th>
-          <th>Download</th> <!-- NEW COLUMN -->
+          <th>Download</th>
         </tr>
       </thead>
 
@@ -38,12 +39,12 @@
             <td>{{ item.ERDAT }}</td>
             <td>{{ item.VTWEG }}</td>
 
-            <!-- DOWNLOAD BUTTON -->
-             <td>
-  <button class="preview-btn" (click)="previewPDF(item.VBELN)">
-    Preview
-  </button>
-</td>
+            <td>
+              <button class="preview-btn" (click)="previewPDF(item.VBELN)">
+                Preview
+              </button>
+            </td>
+
             <td>
               <button class="download-btn" (click)="downloadPDF(item.VBELN)">
                 Download
@@ -52,7 +53,6 @@
           </tr>
         }
       </tbody>
-
     </table>
   </div>
 

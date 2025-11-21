@@ -7,13 +7,15 @@
     <h1>Inquiry Data</h1>
   </div>
 
+  <!-- Error Message Box -->
   <div *ngIf="error()" class="error-box">
     {{ error() }}
   </div>
 
-  <div class="table-container" *ngIf="inquiries().length > 0">
+  <!-- Scrollable Table -->
+  <div class="table-wrapper" *ngIf="inquiries().length > 0">
 
-    <table>
+    <table class="inquiry-table">
       <thead>
         <tr>
           <th>Inquiry No</th>
@@ -41,10 +43,11 @@
           </tr>
         }
       </tbody>
-
     </table>
+
   </div>
 
+  <!-- No Data -->
   <div *ngIf="inquiries().length === 0 && !error()" class="no-data">
     No Inquiry Data Found.
   </div>

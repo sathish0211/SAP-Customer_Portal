@@ -30,31 +30,66 @@ h1 {
   color: #333;
 }
 
-.table-container {
-  overflow-x: auto;
+/* Error box styling */
+.error-box {
+  background-color: #ffcccc;
+  color: #900;
+  padding: 12px;
+  border-left: 5px solid red;
+  font-weight: bold;
+  margin-bottom: 15px;
+  border-radius: 6px;
 }
 
-table {
+/* Scrollable Table Container */
+.table-wrapper {
+  max-height: 75vh;
+  overflow-y: auto;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Table styling */
+.inquiry-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-th {
+.inquiry-table th,
+.inquiry-table td {
+  padding: 12px;
+  border-bottom: 1px solid maroon;
+}
+
+/* Sticky Header */
+.inquiry-table thead th {
+  position: sticky;
+  top: 0;
   background-color: maroon;
   color: white;
-  padding: 12px;
-  text-align: left;
+  z-index: 10;
 }
 
-td {
-  border-bottom: 1px solid maroon;
-  padding: 12px;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-table tr {
+/* Row Colors */
+.inquiry-table tbody tr {
   background-color: bisque;
+}
+
+.inquiry-table tbody tr:nth-child(even) {
+  background-color: #f3d5b5;
+}
+
+/* No data message */
+.no-data {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  margin-top: 20px;
+}
+
+/* Loading style */
+.loading {
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
 }

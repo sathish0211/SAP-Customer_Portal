@@ -30,32 +30,40 @@ h1 {
   color: #333;
 }
 
-.table-container {
-  overflow-x: auto;
+/* Scrollable wrapper */
+.table-wrapper {
+  max-height: 75vh;
+  overflow-y: auto;
+  border-radius: 8px;
+  border: 1px solid #ddd;
 }
 
-table {
+/* Table styling */
+.delivery-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-th {
+.delivery-table th,
+.delivery-table td {
+  padding: 12px;
+  border-bottom: 1px solid maroon;
+}
+
+/* Sticky header */
+.delivery-table thead th {
+  position: sticky;
+  top: 0;
   background-color: maroon;
   color: white;
-  padding: 12px;
-  text-align: left;
+  z-index: 10;
 }
 
-td {
-  border-bottom: 1px solid maroon;
-  padding: 12px;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-
-table tr {
+/* Row colors */
+.delivery-table tbody tr {
   background-color: bisque;
+}
+
+.delivery-table tbody tr:nth-child(even) {
+  background-color: #f3d5b5;
 }
