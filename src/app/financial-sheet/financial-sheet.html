@@ -1,24 +1,24 @@
 <div class="dashboard-container">
 
-  <div class="card invoice">
+  <div class="card invoice" [routerLink]="['/home/invoice-details']">
     <div class="icon"></div>
     <h3>Invoice Details</h3>
     <p>View detailed invoice information.</p>
   </div>
 
-  <div class="card payments">
+  <div class="card payments" [routerLink]="['/home/payments-and-aging']">
     <div class="icon"></div>
     <h3>Payments and Aging</h3>
     <p>Track payments and aging reports.</p>
   </div>
 
-  <div class="card credit">
+  <div class="card credit" [routerLink]="['/home/credit-debit-memo']">
     <div class="icon"></div>
     <h3>Credit/Debit Memo</h3>
     <p>Manage credit and debit memos.</p>
   </div>
 
-  <div class="card sales">
+  <div class="card sales" [routerLink]="['/home/overall-sales-data']">
     <div class="icon"></div>
     <h3>Overall Sales Data</h3>
     <p>Analyze overall sales performance.</p>
