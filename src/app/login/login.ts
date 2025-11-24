@@ -16,6 +16,7 @@ export class Login {
 
   showPassword = signal(false);
   loginForm: FormGroup;
+  errorMessage = signal('');
   private router = inject(Router);
   private fb = inject(FormBuilder);
   private http = inject(HttpClient);
@@ -32,25 +33,32 @@ export class Login {
   }
 
   login() {
+
     if (this.loginForm.invalid) return;
 
     const { customerId, password } = this.loginForm.value;
 
-    // Call Node backend API
-    this.http.post('http://localhost:3001/login', {
-      customerId,
-      password
-    }).subscribe({
-      next: (res: any) => {
-  if (res.status === 'SUCCESS') {
-    localStorage.setItem("customerId", customerId);
-    this.router.navigate(['/home']);
-  } 
-},
-      error: (err) => {
-  console.error(err);
+    this.errorMessage.set('');  // UPDATED
+
+    this.http.post('http://localhost:3001/login', { customerId, password })
+      .subscribe({
+
+        next: (res: any) => {
+          if (res.status === 'SUCCESS') {
+            localStorage.setItem("customerId", customerId);
+            this.router.navigate(['/home']);
+          } 
+          else if (res.status === 'FAIL') {
+            this.errorMessage.set("Invalid credentials");  // UPDATED
+          }
+        },
+
+        error: (err) => {
+          console.error(err);
+          this.errorMessage.set("Server error. Please try again.");  // UPDATED
+        }
+
+  });
 }
 
-    });
-  }
 }
