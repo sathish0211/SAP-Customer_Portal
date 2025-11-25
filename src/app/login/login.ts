@@ -22,9 +22,18 @@ export class Login {
   private http = inject(HttpClient);
 
   constructor() {
+
     this.loginForm = this.fb.group({
       customerId: ['', Validators.required],
       password: ['', Validators.required]
+    });
+
+    // 🔥 Prevent browser from going back to previous pages
+    history.pushState(null, '', location.href);
+
+    window.addEventListener('popstate', () => {
+      // 🔥 Block swipe-left/back on login page
+      history.pushState(null, '', location.href);
     });
   }
 
@@ -38,27 +47,28 @@ export class Login {
 
     const { customerId, password } = this.loginForm.value;
 
-    this.errorMessage.set('');  // UPDATED
+    this.errorMessage.set(''); 
 
     this.http.post('http://localhost:3001/login', { customerId, password })
       .subscribe({
 
         next: (res: any) => {
+          
           if (res.status === 'SUCCESS') {
             localStorage.setItem("customerId", customerId);
             this.router.navigate(['/home']);
           } 
           else if (res.status === 'FAIL') {
-            this.errorMessage.set("Invalid credentials");  // UPDATED
+            this.errorMessage.set("Invalid credentials");
           }
         },
 
         error: (err) => {
           console.error(err);
-          this.errorMessage.set("Server error. Please try again.");  // UPDATED
+          this.errorMessage.set("Server error. Please try again.");
         }
 
-  });
-}
+      });
+  }
 
 }
