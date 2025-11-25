@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 
 import { Home } from './home/home';
 import { ProfileComponent as Profile } from './profile/profile';
@@ -30,6 +31,7 @@ export const routes: Routes = [
   {
     path: 'home',
     component: Home,
+    canActivate: [AuthGuard], 
     children: [
 
       // Profile

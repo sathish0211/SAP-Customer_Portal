@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { RouterOutlet, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,22 @@ import { RouterOutlet } from '@angular/router';
   template: '<router-outlet></router-outlet>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class App {}
+export class App {
+
+  private router = inject(Router);
+
+  constructor() {
+
+    // Disable browser's back/forward cached navigation
+    window.addEventListener('popstate', () => {
+
+      const isLoggedIn = !!localStorage.getItem('customerId');
+
+      if (!isLoggedIn) {
+        this.router.navigate(['/login']);
+      } else {
+        this.router.navigate(['/home']);
+      }
+    });
+  }
+}
